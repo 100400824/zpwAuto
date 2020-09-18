@@ -1,6 +1,7 @@
-package com.source.config;
+package source.control;
 
 import java.sql.*;
+
 public class Lianjmysql
 {
 
@@ -39,7 +40,6 @@ public class Lianjmysql
             // 展开结果集数据库
          /*   while(rs.next()){
                 // 通过字段检索
-                int sx  = rs.getInt("sx");
                 String mz = rs.getString("mz");
                 String bz = rs.getString("bz");
 
