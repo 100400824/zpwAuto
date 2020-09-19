@@ -1,5 +1,7 @@
 package source.control;
 
+import source.utls.GetConfig;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,9 +18,9 @@ public class ConnectMySql {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/course";
-            String user = "root";
-            String pass = "123123";
+            String url = GetConfig.getApplication("MySql.url");
+            String user = GetConfig.getApplication("MySql.username");;
+            String pass = GetConfig.getApplication("MySql.password");;
             conn = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
