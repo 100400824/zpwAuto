@@ -12,10 +12,10 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import source.control.GetCases;
+import source.utls.GetConfig;
 
-import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MyHttpClient {
 
@@ -27,45 +27,51 @@ public class MyHttpClient {
     private HttpResponse response;
     private String result;
 
-    @BeforeClass
-    public void getParameter() {
-        ResourceBundle bundle = ResourceBundle.getBundle("application", Locale.CHINA);
-        url = bundle.getString("test.url");
-        uri = bundle.getString("test.uri");
+    public static void main(String[] args) throws Exception {
+        String url = "http://localhost:7127/userManage/login";
+        String tableName = "logincases";
+        List<Map<String, Map<String, Object>>> resultMapList = GetCases.getTestCases(tableName);
+        for (Map<String, Map<String, Object>> requestMap : resultMapList) {
+            Map<String, Object> caseMsgMap;
+            Map<String, Object> requestParamMap;
+            Map<String, Object> requestParamMapNew = new HashMap<String, Object>();
+            caseMsgMap = requestMap.get("caseMsgMap");
+            requestParamMap = requestMap.get("requestParamMap");
+            requestParamMapNew.put("param", requestParamMap);
+            requestParamMapNew.put("url", url);
+            MyHttpClient myHttpClient = new MyHttpClient();
+            List<Object> resultList = myHttpClient.doPostJson(requestParamMapNew);
+//            System.out.println(resultList);
+            myHttpClient.verify(resultList, caseMsgMap);
+        }
     }
 
-    //get请求
-    @Test
-    public void test1() throws Exception {
-        client.setCookieStore(cookieStore);
-        httpGet = new HttpGet(url + uri);
-        response = client.execute(httpGet);
-        result = EntityUtils.toString(response.getEntity(), "utf-8");
-        System.out.println(response);
-
-        this.cookieStore = client.getCookieStore();
-        List<Cookie> cookies = this.cookieStore.getCookies();
-        System.out.println(cookies.size());
-//        System.out.println(result);
-
+    public void verify(List<Object> resultList, Map<String, Object> caseMsgMap) {
+        Boolean verifyStatus = null;
+        String resultStr = resultList.get(1).toString();
+        if (caseMsgMap.get("verifytype").equals("contains")) {
+            verifyStatus = resultStr.contains(caseMsgMap.get("expect").toString());
+            caseMsgMap.put("resultVerify", verifyStatus);
+            caseMsgMap.put("resultActual", resultStr);
+        } else {
+            System.out.println("无法找到用例中的verifytype字段或其对应的值不包含在已定义的范围内。");
+        }
+        System.out.println("校验结果：" + caseMsgMap);
     }
 
-    //post json
-    @Test
-    public void doPostJson() throws Exception {
-
-        httpPost = new HttpPost("http://localhost:7127/doTest");
-        JSONObject param = new JSONObject();
-        param.put("one","wo");
-        param.put("two","ni");
-        StringEntity entiy = new StringEntity(param.toString(),"UTF-8");
+    public List<Object> doPostJson(Map<String, Object> requestMap) throws Exception {
+        String url = requestMap.get("url").toString();
+        JSONObject param = new JSONObject(requestMap.get("param").toString().replace("=", ":"));
+        httpPost = new HttpPost(url);
+        httpPost.setHeader("Content-Type", "application/json");
+        StringEntity entiy = new StringEntity(param.toString(), "UTF-8");
         httpPost.setEntity(entiy);
         response = client.execute(httpPost);
-        result = EntityUtils.toString(response.getEntity(),"UTF-8");
-        System.out.println(result);
-        param = new JSONObject(result);
-        System.out.println(param.get("code"));
-
+        result = EntityUtils.toString(response.getEntity(), "UTF-8");
+        List<Object> resultList = new ArrayList<Object>();
+        resultList.add(response);
+        resultList.add(result);
+        return resultList;
     }
 
 }

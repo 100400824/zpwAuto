@@ -1,0 +1,18 @@
+测试数据
+hello 
+world!hahahahello 
+world!hahahadddd
+
+
+Button VoteButton VoteButton--up
+Button VoteButton VoteButton--up is-active
+
+
+allListTemplateFail
+
+reportTemplateId
+reportTemplateRequestName
+reportTemplateStartTime
+reportTemplateEndTime
+reportTemplateTakenTime
+reportTemplateFailDetail

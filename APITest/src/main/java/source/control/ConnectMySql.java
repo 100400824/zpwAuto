@@ -14,6 +14,12 @@ import java.util.List;
 import java.util.Map;
 
 public class ConnectMySql {
+
+    public static void main(String[] args) {
+        String sql = "select * from logincases";
+        System.out.println(getCases(sql));
+    }
+
     private static Connection getConnection() {
         Connection conn = null;
         try {
@@ -30,9 +36,8 @@ public class ConnectMySql {
         return conn;
     }
 
-    public static void main(String[] args) {
+    public static List<Map<String ,Object>> getCases(String sql) {
         Connection conn = getConnection();
-        String sql = "select * from logincases";
         PreparedStatement stmt;
         List<Map<String ,Object>> requestMapList = new ArrayList<Map<String, Object>>();
         try {
@@ -63,13 +68,15 @@ public class ConnectMySql {
         } catch (SQLException e) {
             System.out.println("数据库连接失败");
         }
-        System.out.println(requestMapList);
+/*        System.out.println(requestMapList);
         System.out.println(requestMapList.size());
         System.out.println(requestMapList.get(0).keySet());
         for (String requestName : requestMapList.get(0).keySet()) {
             System.out.println(requestName);
             System.out.println(requestMapList.get(0).get(requestName));
             System.out.println("----------------------------------------");
-        }
+        }*/
+        return requestMapList;
     }
+
 }
