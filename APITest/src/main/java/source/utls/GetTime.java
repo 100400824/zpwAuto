@@ -6,20 +6,20 @@ import java.util.Date;
 public class GetTime {
 
     public static final String dateFormat1 = "yyyy-MM-dd HH:mm:ss";
-
     public static final String dateFormat2 = "yyyy-MM-dd HH:mm:ss.SSS";
+    public static final String dateFormat3 = "yyyy-MM-dd HH-mm-ss";
 
     public static void main(String[] args) {
 //        getNowTime(GetTime.dateFormat2);
         getTimeDifference("2020-09-19 22:48:55.260", "2020-09-19 22:48:56.259");
     }
 
-    public static void getNowTime(String dateFormat) {
+    public static String getNowTime(String dateFormat) {
         SimpleDateFormat df = new SimpleDateFormat(dateFormat);//设置日期格式
-        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        return df.format(new Date());
     }
 
-    public static void getTimeDifference(String startTime, String endTime) {
+    public static String getTimeDifference(String startTime, String endTime) {
 
         SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         long between = 0;
@@ -37,11 +37,11 @@ public class GetTime {
         long ms = (between - day * 24 * 60 * 60 * 1000 - hour * 60 * 60 * 1000
                 - min * 60 * 1000 - s * 1000);
         if (s == 0 && min == 0) {
-            System.out.println(ms + "毫秒");
+            return ms + "毫秒";
         } else if (min == 0) {
-            System.out.println(s + "秒" + ms + "毫秒");
+            return s + "秒" + ms + "毫秒";
         } else {
-            System.out.println(day + "天" + hour + "小时" + min + "分" + s + "秒" + ms + "毫秒");
+            return day + "天" + hour + "小时" + min + "分" + s + "秒" + ms + "毫秒";
         }
 
     }

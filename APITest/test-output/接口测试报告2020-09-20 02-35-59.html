@@ -187,17 +187,17 @@
 		<div class="view-summary" style="height: 249px;">
 			<h5>Tests</h5>
 			<ul id="test-collection" class="test-collection">
-				<li class="test displayed  fail active" status="fail" bdd="false" test-id="reportTemplateId">
+				<li class="test displayed  fail active" status="fail" bdd="false" test-id="21">
 					<div class="test-heading">
-						<span class="test-name">reportTemplateRequestName</span>
-						<span class="test-time">reportTemplateStartTime</span>
+						<span class="test-name">1.登录接口:正确登录</span>
+						<span class="test-time">2020-09-20 02:36:00.358</span>
 						<span class="test-status right fail">fail</span>
 					</div>
 					<div class="test-content hide">
 <div class="test-time-info">
-	<span class="label start-time">reportTemplateStartTime</span>
-	<span class="label end-time">reportTemplateEndTime</span>
-	<span class="label time-taken grey lighten-1 white-text">reportTemplateTakenTime</span>
+	<span class="label start-time">2020-09-20 02:36:00.358</span>
+	<span class="label end-time">2020-09-20 02:36:01.183</span>
+	<span class="label time-taken grey lighten-1 white-text">825毫秒</span>
 </div>
 	<div class="test-steps">
 		<table class="bordered table-results">
@@ -211,8 +211,112 @@
 			<tbody>
 				<tr class="log" status="fail">
 					<td class="status fail" title="fail" alt="fail"><i class="material-icons">cancel</i></td>
-					<td class="timestamp">reportTemplateStartTime</td>
-					<td class="step-details"><pre>reportTemplateFailDetail</pre></td>
+					<td class="timestamp">2020-09-20 02:36:00.358</td>
+					<td class="step-details"><pre>执行详情：
+期望响应结果 null null
+实际响应结果 {"msg":"login True","code":"200"}</pre></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				<li class="test displayed  fail active" status="fail" bdd="false" test-id="22">
+					<div class="test-heading">
+						<span class="test-name">2.登录接口:密码错误</span>
+						<span class="test-time">2020-09-20 02:36:01.188</span>
+						<span class="test-status right fail">fail</span>
+					</div>
+					<div class="test-content hide">
+<div class="test-time-info">
+	<span class="label start-time">2020-09-20 02:36:01.188</span>
+	<span class="label end-time">2020-09-20 02:36:01.208</span>
+	<span class="label time-taken grey lighten-1 white-text">20毫秒</span>
+</div>
+	<div class="test-steps">
+		<table class="bordered table-results">
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="log" status="fail">
+					<td class="status fail" title="fail" alt="fail"><i class="material-icons">cancel</i></td>
+					<td class="timestamp">2020-09-20 02:36:01.188</td>
+					<td class="step-details"><pre>执行详情：
+期望响应结果 null null
+实际响应结果 {"msg":"login false","code":"400"}</pre></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				<li class="test displayed  fail active" status="fail" bdd="false" test-id="23">
+					<div class="test-heading">
+						<span class="test-name">3.登录接口:账号为空</span>
+						<span class="test-time">2020-09-20 02:36:01.210</span>
+						<span class="test-status right fail">fail</span>
+					</div>
+					<div class="test-content hide">
+<div class="test-time-info">
+	<span class="label start-time">2020-09-20 02:36:01.210</span>
+	<span class="label end-time">2020-09-20 02:36:01.272</span>
+	<span class="label time-taken grey lighten-1 white-text">62毫秒</span>
+</div>
+	<div class="test-steps">
+		<table class="bordered table-results">
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="log" status="fail">
+					<td class="status fail" title="fail" alt="fail"><i class="material-icons">cancel</i></td>
+					<td class="timestamp">2020-09-20 02:36:01.210</td>
+					<td class="step-details"><pre>执行详情：
+期望响应结果 null null
+实际响应结果 {"msg":"login false","code":"400"}</pre></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				<li class="test displayed  fail active" status="fail" bdd="false" test-id="24">
+					<div class="test-heading">
+						<span class="test-name">4.登录接口:密码为空</span>
+						<span class="test-time">2020-09-20 02:36:01.275</span>
+						<span class="test-status right fail">fail</span>
+					</div>
+					<div class="test-content hide">
+<div class="test-time-info">
+	<span class="label start-time">2020-09-20 02:36:01.275</span>
+	<span class="label end-time">2020-09-20 02:36:01.285</span>
+	<span class="label time-taken grey lighten-1 white-text">10毫秒</span>
+</div>
+	<div class="test-steps">
+		<table class="bordered table-results">
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="log" status="fail">
+					<td class="status fail" title="fail" alt="fail"><i class="material-icons">cancel</i></td>
+					<td class="timestamp">2020-09-20 02:36:01.275</td>
+					<td class="step-details"><pre>执行详情：
+期望响应结果 null null
+实际响应结果 {"msg":"login false","code":"400"}</pre></td>
 				</tr>
 			</tbody>
 		</table>

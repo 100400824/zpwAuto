@@ -13,7 +13,10 @@ import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import source.control.GetCases;
+import source.extentReport.ReportTemplate;
 import source.utls.GetConfig;
+import source.utls.GetTime;
+import source.utls.OperationFile;
 
 import java.util.*;
 
@@ -26,12 +29,22 @@ public class MyHttpClient {
     private HttpPost httpPost;
     private HttpResponse response;
     private String result;
+    private static String reportTemplateStartTime;
+    private static String reportTemplateEndTime;
+    private static String reportTemplateTakenTime;
+    public static String reportPaht = ReportTemplate.filePath + "接口测试报告" + GetTime.getNowTime(GetTime.dateFormat3) + ".html";
 
     public static void main(String[] args) throws Exception {
-        String url = "http://localhost:7127/userManage/login";
-        String tableName = "logincases";
-        List<Map<String, Map<String, Object>>> resultMapList = GetCases.getTestCases(tableName);
-        for (Map<String, Map<String, Object>> requestMap : resultMapList) {
+        String apiTableName = "umAddress";
+        List<Map<String, Map<String, Object>>> apiMapList = GetCases.getTestCases(apiTableName);
+        Map<String, Map<String, Object>> apiMap;
+        apiMap = apiMapList.get(1);
+        String url = apiMapList.get(0).get("caseMsgMap").get("api_url") + apiMap.get("caseMsgMap").get("api_url").toString();
+        String casesTableName = apiMap.get("caseMsgMap").get("api_casesTableName").toString();
+        List<Map<String, Map<String, Object>>> casesMapList = GetCases.getTestCases(casesTableName);
+        //写入测试报告第一段
+        OperationFile.write(reportPaht, ReportTemplate.tp1);
+        for (Map<String, Map<String, Object>> requestMap : casesMapList) {
             Map<String, Object> caseMsgMap;
             Map<String, Object> requestParamMap;
             Map<String, Object> requestParamMapNew = new HashMap<String, Object>();
@@ -43,20 +56,34 @@ public class MyHttpClient {
             List<Object> resultList = myHttpClient.doPostJson(requestParamMapNew);
 //            System.out.println(resultList);
             myHttpClient.verify(resultList, caseMsgMap);
+            caseMsgMap.put("reportTemplateStartTime", reportTemplateStartTime);
+            caseMsgMap.put("reportTemplateEndTime", reportTemplateEndTime);
+            reportTemplateTakenTime = GetTime.getTimeDifference(reportTemplateStartTime, reportTemplateEndTime);
+            caseMsgMap.put("reportTemplateTakenTime", reportTemplateTakenTime);
+            caseMsgMap.put("api_id",apiMap.get("caseMsgMap").get("api_id"));
+            caseMsgMap.put("api_description",apiMap.get("caseMsgMap").get("api_description"));
+            caseMsgMap.put("api_url",apiMap.get("caseMsgMap").get("api_url"));
+            caseMsgMap.put("requestParamMap",requestParamMap);
+            System.out.println("校验结果：" + caseMsgMap);
+            String reportHtml = ReportTemplate.getTemplate(caseMsgMap);
+            //写入测试报告每次的结果
+            OperationFile.write(reportPaht, reportHtml);
         }
+        OperationFile.write(reportPaht, ReportTemplate.tp2);
     }
 
-    public void verify(List<Object> resultList, Map<String, Object> caseMsgMap) {
+    public Map<String, Object> verify(List<Object> resultList, Map<String, Object> caseMsgMap) {
         Boolean verifyStatus = null;
         String resultStr = resultList.get(1).toString();
-        if (caseMsgMap.get("verifytype").equals("contains")) {
-            verifyStatus = resultStr.contains(caseMsgMap.get("expect").toString());
+        if (caseMsgMap.get("cases_verifytype").equals("contains")) {
+            verifyStatus = resultStr.contains(caseMsgMap.get("cases_expect").toString());
             caseMsgMap.put("resultVerify", verifyStatus);
             caseMsgMap.put("resultActual", resultStr);
         } else {
             System.out.println("无法找到用例中的verifytype字段或其对应的值不包含在已定义的范围内。");
         }
-        System.out.println("校验结果：" + caseMsgMap);
+//        System.out.println("校验结果：" + caseMsgMap);
+        return caseMsgMap;
     }
 
     public List<Object> doPostJson(Map<String, Object> requestMap) throws Exception {
@@ -66,7 +93,9 @@ public class MyHttpClient {
         httpPost.setHeader("Content-Type", "application/json");
         StringEntity entiy = new StringEntity(param.toString(), "UTF-8");
         httpPost.setEntity(entiy);
+        reportTemplateStartTime = GetTime.getNowTime(GetTime.dateFormat2);
         response = client.execute(httpPost);
+        reportTemplateEndTime = GetTime.getNowTime(GetTime.dateFormat2);
         result = EntityUtils.toString(response.getEntity(), "UTF-8");
         List<Object> resultList = new ArrayList<Object>();
         resultList.add(response);

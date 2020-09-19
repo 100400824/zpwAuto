@@ -1,10 +1,9 @@
 package source.control;
 
+import source.utls.GetConfig;
 import java.util.*;
 
-
 public class GetCases {
-
 
     public static void main(String[] args) {
         String tableName = "logincases";
@@ -24,7 +23,8 @@ public class GetCases {
             Set<String> nameSet = requestMapList.get(i).keySet();
             Map<String, Object> everyCaseMap = requestMapList.get(i);
             for (String requestName : nameSet) {
-                if ("casesId,description,verifytype,expect,isrun".contains(requestName)) {
+                if (GetConfig.getApplication("Case.msg").contains(requestName) ||
+                        GetConfig.getApplication("API.msg").contains(requestName)) {
                     caseMsgMap.put(requestName, everyCaseMap.get(requestName));
                 } else {
                     requestParamMap.put(requestName, everyCaseMap.get(requestName));

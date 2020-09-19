@@ -13,7 +13,6 @@ public class OperationFile {
     }
 
     public static void write(String path,String value) throws IOException {
-        System.out.println(path);
         //将写入转化为流的形式
         FileWriter fw=new FileWriter(path,true);
         fw.write(value);//windows中的换行为\r\n    unix下为\r。   
