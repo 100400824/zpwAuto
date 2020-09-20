@@ -139,8 +139,6 @@ public class MyHttpClient {
         StringEntity entiy = new StringEntity(paramStr, "UTF-8");
         httpPost.setEntity(entiy);
         response = httpClient.execute(httpPost);
-        System.out.println(response);
-
     }
 
 
