@@ -29,7 +29,6 @@ public class GetCases {
                     caseMsgMap.put(requestName, everyCaseMap.get(requestName));
                 } else {
                     String mapValue = everyCaseMap.get(requestName).toString();
-                    //将MySql中的null替换为""
                     requestParamMap.put(requestName, mapValue);
                 }
             }

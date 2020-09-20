@@ -64,12 +64,12 @@ public class ReportTemplate {
             "\t\t<ul id=\"nav-mobile\" class=\"right hide-on-med-and-down nav-right\">\n" +
             "\t\t\t<li>\n" +
             "                <a href=\"#!\">\n" +
-            "                    <span class=\"label suite-start-time blue darken-3\">Sep 14, 2020 11:03:35 AM</span>\n" +
+            "                    <span class=\"label suite-start-time blue darken-3\"></span>\n" +
             "\t\t\t\t</a>\n" +
             "\t\t\t</li>\n" +
             "\t\t\t<li>\n" +
             "                <a href=\"#!\">\n" +
-            "                    <span class=\"label blue darken-3\">v3.0.6</span>\n" +
+            "                    <span class=\"label blue darken-3\">v1.0.1</span>\n" +
             "\t\t\t\t</a>\n" +
             "\t\t\t</li>\n" +
             "\t\t</ul>\n" +
@@ -187,7 +187,7 @@ public class ReportTemplate {
             "\t})Linebreak\n" +
             "\twindow.onload = function(){Linebreak\n" +
             "\tconsole.log(myChart,myChart._dom.children[0].getElementsByTagName('canvas')[0])Linebreak\n" +
-            "\tmyChart._dom.children[0].getElementsByTagName('canvas')[0].style.left=\"270px\"Linebreak\n" +
+            "\tmyChart._dom.children[0].getElementsByTagName('canvas')[0].style.left=\"230px\"Linebreak\n" +
             "\tLinebreak\n" +
             "\tLinebreak\n" +
             "Linebreak\n" +
