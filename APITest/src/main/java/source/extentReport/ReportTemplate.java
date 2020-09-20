@@ -1,5 +1,6 @@
 package source.extentReport;
 
+import source.utls.GetTime;
 import source.utls.OperationFile;
 
 import java.util.Map;
@@ -7,6 +8,11 @@ import java.util.Map;
 public class ReportTemplate {
 
     public static final String filePath = System.getProperty("user.dir") + "\\APITest\\test-output\\";
+    public static int caseNumSuccess = 0;
+    public static int caseNumFail = 0;
+    public static String reportTemplateStartTimeALL;
+    public static String reportTemplateEndTimeALL;
+    public static String reportTemplateTakenTimeALL;
 
     public static String tp1 = "<html><head>\n" +
             "\t<meta charset=\"utf-8\"> \n" +
@@ -39,17 +45,17 @@ public class ReportTemplate {
             "\n" +
             "<nav>\n" +
             "\t<div class=\"nav-wrapper\">\n" +
-            "\t\t<a href=\"#!\" class=\"brand-logo blue darken-3\">Extent</a>\n" +
+            "\t\t<a href=\"#!\" class=\"brand-logo blue darken-3\">piu piu</a>\n" +
             "\n" +
             "\t\t<!-- slideout menu -->\n" +
             "\t\t<ul id=\"slide-out\" class=\"side-nav fixed hide-on-med-and-down\">\n" +
             "\t\t\t<li class=\"waves-effect active\"><a href=\"#!\" view=\"test-view\" onclick=\"configureView(0);chartsView('test');\"><i class=\"material-icons\">dashboard</i></a></li>\n" +
-            "\t\t\t\t\t\t<li class=\"waves-effect\"><a href=\"#!\" view=\"exception-view\" onclick=\"configureView(2)\"><i class=\"material-icons\">bug_report</i></a></li>\n" +
+            /*"\t\t\t\t\t\t<li class=\"waves-effect\"><a href=\"#!\" view=\"exception-view\" onclick=\"configureView(2)\"><i class=\"material-icons\">bug_report</i></a></li>\n" +*/
             "\t\t\t<li class=\"waves-effect\"><a href=\"#!\" onclick=\"configureView(-1);chartsView('dashboard');\" view=\"dashboard-view\"><i class=\"material-icons\">track_changes</i></a></li>\n" +
             "\t\t</ul>\n" +
             "\n" +
             "\t\t<!-- report name -->\n" +
-            "\t\t<span class=\"report-name\">自动化测试报告</span>\n" +
+            "\t\t<span class=\"report-name\">接口自动化测试报告</span>\n" +
             "\t\t\n" +
             "\t\t<!-- report headline -->\n" +
             "\t\t<span class=\"report-headline\"></span>\n" +
@@ -137,20 +143,17 @@ public class ReportTemplate {
             "\n" +
             "<div id=\"parent-analysis\" style=\"width: 950px;height:100px;\"></div>\n" +
             "<script type=\"text/javascript\">\n" +
-            "    // 基于准备好的dom，初始化echarts实例\n" +
-            "\tvar myChart = echarts.init(document.getElementById('parent-analysis'));\n" +
+            /*"\tvar myChart = echarts.init(document.getElementById('parent-analysis'));\n" +
             "   \n" +
             "    myChart.setOption({\n" +
             "        series : [\n" +
-            "            {\n" +
-            "                name: '访问来源',\n" +
-            "                type: 'pie',    // 设置图表类型为饼图\n" +
-            "                radius: '65%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。\n" +
-            "                data:[          // 数据数组，name 为数据项名称，value 为数据项值\n" +
-            "                   \n" +
-            "                    {value:22, name:'测试失败：22'},\n" +
-            "                    {value:144, name:'测试通过：144'},\n" +
-            "              \n" +
+            "            {\n\n" +
+            "              \n  name: '访问来源',\n\n" +
+            "               \n type: 'pie',    \n\n" +
+            "               \n radius: '65%',  \n\n" +
+            "               \n data:[          " +
+            "                    {value:caseNumFail, name:'测试失败：caseNumFail'},\n\n" +
+            "                    {value:caseNumSuccess, name:'测试通过：caseNumSuccess'},\n\n" +
             "                ]\n" +
             "            }\n" +
             "        ]\n" +
@@ -161,15 +164,42 @@ public class ReportTemplate {
             "\t\n" +
             "\t\n" +
             "\n" +
-            "}\n" +
+            "}\n" +*/
+            "\n" +
+            "    // 基于准备好的dom，初始化echarts实例\nLinebreak\n" +
+            "\n" +
+            "\tvar myChart = echarts.init(document.getElementById('parent-analysis'));Linebreak\n" +
+            "   \n" +
+            "    myChart.setOption({Linebreak\n" +
+            "        series : [Linebreak\n" +
+            "            {Linebreak\n" +
+            "                name: '访问来源',Linebreak\n" +
+            "                type: 'pie',    // 设置图表类型为饼图Linebreak\n" +
+            "                radius: '65%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。Linebreak\n" +
+            "                data:[          // 数据数组，name 为数据项名称，value 为数据项值Linebreak\n" +
+            "                   \n" +
+            "                    {value:caseNumFail, name:'测试失败：caseNumFail'},Linebreak\n" +
+            "                    {value:caseNumSuccess, name:'测试通过：caseNumSuccess'},Linebreak\n" +
+            "              Linebreak\n" +
+            "                ]Linebreak\n" +
+            "            }Linebreak\n" +
+            "        ]Linebreak\n" +
+            "\t})Linebreak\n" +
+            "\twindow.onload = function(){Linebreak\n" +
+            "\tconsole.log(myChart,myChart._dom.children[0].getElementsByTagName('canvas')[0])Linebreak\n" +
+            "\tmyChart._dom.children[0].getElementsByTagName('canvas')[0].style.left=\"270px\"Linebreak\n" +
+            "\tLinebreak\n" +
+            "\tLinebreak\n" +
+            "Linebreak\n" +
+            "}Linebreak\n" +
             "</script> \n" +
             "\t\t\t</div>\n" +
             "\t\t\t\t\n" +
             "\t\t\t\t<div class=\"block text-small\" style = \"width:200px;\">\n" +
-            "\t\t\t\t\t<span class=\"tooltipped\" data-position=\"top\" data-tooltip=\"50%\" data-tooltip-id=\"2453041c-b251-7979-7a3a-4d8f0a215761\"><span class=\"strong\">144</span> test(s) passed</span>\n" +
+            "\t\t\t\t\t<span class=\"tooltipped\" data-position=\"top\" data-tooltip=\"50%\" data-tooltip-id=\"2453041c-b251-7979-7a3a-4d8f0a215761\"><span class=\"strong\">caseNumSuccess</span> test(s) passed</span>\n" +
             "\t\t\t\t</div>\n" +
             "\t\t\t\t<div class=\"block text-small\" style = \"width:200px;\">\n" +
-            "\t\t\t\t\t<span class=\"strong tooltipped\" data-position=\"top\" data-tooltip=\"50%\" data-tooltip-id=\"026a6157-be85-26f3-4daa-d3a0cc65ab73\">22</span> test(s) failed, <span class=\"strong tooltipped\" data-position=\"top\" data-tooltip=\"0%\" data-tooltip-id=\"b2b70954-4299-e4aa-9a56-f975b3559eb4\">0</span> others\n" +
+            "\t\t\t\t\t<span class=\"strong tooltipped\" data-position=\"top\" data-tooltip=\"50%\" data-tooltip-id=\"026a6157-be85-26f3-4daa-d3a0cc65ab73\">caseNumFail</span> test(s) failed, <span class=\"strong tooltipped\" data-position=\"top\" data-tooltip=\"0%\" data-tooltip-id=\"b2b70954-4299-e4aa-9a56-f975b3559eb4\">0</span> others\n" +
             "\t\t\t\t</div>\n" +
             "\t\t\t</div>\n" +
             "\t\t</div>\n" +
@@ -195,7 +225,7 @@ public class ReportTemplate {
             "\t<div class=\"subview-left left\" style=\"resize: horizontal; height: 267px;\">\n" +
             "\t\t\n" +
             "\t\t<div class=\"view-summary\" style=\"height: 249px;\">\n" +
-            "\t\t\t<h5>Tests</h5>\n" +
+            "\t\t\t<h5>接口测试详情</h5>\n" +
             "\t\t\t<ul id=\"test-collection\" class=\"test-collection\">\n";
 
     public static String allListTemplateFail =
@@ -233,17 +263,17 @@ public class ReportTemplate {
                     "\t\t\t\t\t</div>\n" +
                     "\t\t\t\t</li>\n";
 
-    public static String tp2 = "\t\t\t\t<li class=\"test displayed  pass\" status=\"pass\" bdd=\"false\" test-id=\"6\">\n" +
+    public static String allListTemplateSuccess = "\t\t\t\t<li class=\"test displayed  pass\" status=\"pass\" bdd=\"false\" test-id=\"reportTemplateId\">\n" +
             "\t\t\t\t\t<div class=\"test-heading\">\n" +
-            "\t\t\t\t\t\t<span class=\"test-name\">test2</span>\n" +
-            "\t\t\t\t\t\t<span class=\"test-time\">Sep 14, 2020 11:03:35 AM</span>\n" +
+            "\t\t\t\t\t\t<span class=\"test-name\">reportTemplateRequestName</span>\n" +
+            "\t\t\t\t\t\t<span class=\"test-time\">reportTemplateStartTime</span>\n" +
             "\t\t\t\t\t\t<span class=\"test-status right pass\">pass</span>\n" +
             "\t\t\t\t\t</div>\n" +
             "\t\t\t\t\t<div class=\"test-content hide\">\n" +
             "<div class=\"test-time-info\">\n" +
-            "\t<span class=\"label start-time\">Sep 14, 2020 11:03:35 AM</span>\n" +
-            "\t<span class=\"label end-time\">Sep 14, 2020 11:03:35 AM</span>\n" +
-            "\t<span class=\"label time-taken grey lighten-1 white-text\">0h 0m 0s+1ms</span>\n" +
+            "\t<span class=\"label start-time\">reportTemplateStartTime</span>\n" +
+            "\t<span class=\"label end-time\">reportTemplateEndTime</span>\n" +
+            "\t<span class=\"label time-taken grey lighten-1 white-text\">reportTemplateTakenTime</span>\n" +
             "</div>\n" +
             "\t<div class=\"test-steps\">\n" +
             "\t\t<table class=\"bordered table-results\">\n" +
@@ -257,23 +287,23 @@ public class ReportTemplate {
             "\t\t\t<tbody>\n" +
             "\t\t\t\t<tr class=\"log\" status=\"pass\">\n" +
             "\t\t\t\t\t<td class=\"status pass\" title=\"pass\" alt=\"pass\"><i class=\"material-icons\">check_circle</i></td>\n" +
-            "\t\t\t\t\t<td class=\"timestamp\">11:03:35 AM</td>\n" +
-            "\t\t\t\t\t<td class=\"step-details\">Test passed</td>\n" +
+            "\t\t\t\t\t<td class=\"timestamp\">reportTemplateStartTime</td>\n" +
+            "\t\t\t\t\t<td class=\"step-details\"><pre>reportTemplateRequestDetail\" </pre></td>\n" +
             "\t\t\t\t</tr>\n" +
             "\t\t\t</tbody>\n" +
             "\t\t</table>\n" +
             "\t</div>\n" +
             "\t\t\t\t\t</div>\n" +
-            "\t\t\t\t</li>\n" +
-            "\t\t\t\t\t\t\t\t\n" +
+            "\t\t\t\t</li>\n";
+
+    public static String tp2 = "\t\t\t\t\t\t\t\t\n" +
             "\t\t\t</ul>\n" +
             "\t\t</div>\n" +
             "\t</div>\n" +
             "\t<!-- subview left -->\n" +
-            "\n" +
             "\t<div class=\"subview-right left\" style=\"height: 267px; width: 1338px;\">\n" +
             "\t\t<div class=\"view-summary\" style=\"height: 249px;\">\n" +
-            "\t\t\t<h5 class=\"test-name\">test1</h5>\n" +
+            "\t\t\t<h5 class=\"test-name\">test111111</h5>\n" +
             "\n" +
             "\t\t\t<div id=\"step-filters\" class=\"right\">\n" +
             "\t\t\t\t<span class=\"blue-text\" status=\"info\" alt=\"info\" title=\"info\"><i class=\"material-icons\">info_outline</i></span>\n" +
@@ -287,59 +317,11 @@ public class ReportTemplate {
             "\t\t\t</div>\n" +
             "\t\t<div class=\"test-content\">\n" +
             "<div class=\"test-time-info\">\n" +
-            "\t<span class=\"label start-time\">Sep 14, 2020 11:03:35 AM</span>\n" +
-            "\t<span class=\"label end-time\">Sep 14, 2020 11:03:35 AM</span>\n" +
-            "\t<span class=\"label time-taken grey lighten-1 white-text\">0h 0m 0s+10ms</span>\n" +
+            "\t<span class=\"label start-time\">reportTemplateStartTime</span>\n" +
+            "\t<span class=\"label end-time\">reportTemplateEndTime</span>\n" +
+            "\t<span class=\"label time-taken grey lighten-1 white-text\">reportTemplateTakenTime</span>\n" +
             "</div>\n" +
             "\t<div class=\"test-steps\">\n" +
-            "\t\t<table class=\"bordered table-results\">\n" +
-            "\t\t\t<thead>\n" +
-            "\t\t\t\t<tr>\n" +
-            "\t\t\t\t\t<th>Status</th>\n" +
-            "\t\t\t\t\t<th>Timestamp</th>\n" +
-            "\t\t\t\t\t<th>Details</th>\n" +
-            "\t\t\t\t</tr>\n" +
-            "\t\t\t</thead>\n" +
-            "\t\t\t<tbody>\n" +
-            "\t\t\t\t<tr class=\"log\" status=\"fail\">\n" +
-            "\t\t\t\t\t<td class=\"status fail\" title=\"fail\" alt=\"fail\"><i class=\"material-icons\">cancel</i></td>\n" +
-            "\t\t\t\t\t<td class=\"timestamp\">11:03:35 AM</td>\n" +
-            "\t\t\t\t\t<td class=\"step-details\"><pre>java.lang.AssertionError: expected [2] but found [1]\n" +
-            "\tat org.testng.Assert.fail(Assert.java:94)\n" +
-            "\tat org.testng.Assert.failNotEquals(Assert.java:513)\n" +
-            "\tat org.testng.Assert.assertEqualsImpl(Assert.java:135)\n" +
-            "\tat org.testng.Assert.assertEquals(Assert.java:116)\n" +
-            "\tat org.testng.Assert.assertEquals(Assert.java:389)\n" +
-            "\tat org.testng.Assert.assertEquals(Assert.java:399)\n" +
-            "\tat source.extentReport.extentreportsDemo.test1(extentreportsDemo.java:15)\n" +
-            "\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n" +
-            "\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\n" +
-            "\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\n" +
-            "\tat java.lang.reflect.Method.invoke(Unknown Source)\n" +
-            "\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)\n" +
-            "\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:645)\n" +
-            "\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)\n" +
-            "\tat org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)\n" +
-            "\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)\n" +
-            "\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)\n" +
-            "\tat org.testng.TestRunner.privateRun(TestRunner.java:756)\n" +
-            "\tat org.testng.TestRunner.run(TestRunner.java:610)\n" +
-            "\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:387)\n" +
-            "\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)\n" +
-            "\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)\n" +
-            "\tat org.testng.SuiteRunner.run(SuiteRunner.java:289)\n" +
-            "\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)\n" +
-            "\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)\n" +
-            "\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)\n" +
-            "\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1218)\n" +
-            "\tat org.testng.TestNG.runSuites(TestNG.java:1133)\n" +
-            "\tat org.testng.TestNG.run(TestNG.java:1104)\n" +
-            "\tat org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)\n" +
-            "\tat org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)\n" +
-            "</pre></td>\n" +
-            "\t\t\t\t</tr>\n" +
-            "\t\t\t</tbody>\n" +
-            "\t\t</table>\n" +
             "\t</div>\n" +
             "\t\t\t\t\t</div></div>\n" +
             "\t</div>\n" +
@@ -373,64 +355,6 @@ public class ReportTemplate {
             "            <h5>Exceptions</h5>\n" +
             "                <ul id=\"exception-collection\" class=\"exception-collection\">\n" +
             "\n" +
-            "                        <li class=\"exception displayed active\">\n" +
-            "                            <div class=\"exception-heading\">\n" +
-            "                                <span class=\"exception-name\">java.lang.AssertionError</span>\n" +
-            "                                <span class=\"exception-count right\"><span class=\"label red lighten-1 white-text\">1</span></span>\n" +
-            "                            </div>\n" +
-            "                            <div class=\"exception-content hide\">\n" +
-            "                                <div class=\"exception-tests\">\n" +
-            "                                    <table class=\"bordered table-results\">\n" +
-            "                                        <thead>\n" +
-            "                                        <tr>\n" +
-            "                                            <th>Timestamp</th>\n" +
-            "                                            <th>TestName</th>\n" +
-            "                                            <th>Status</th>\n" +
-            "                                        </tr>\n" +
-            "                                        </thead>\n" +
-            "                                        <tbody>\n" +
-            "                                                    <tr>\n" +
-            "                                                        <td>Sep 14, 2020 11:03:35 AM</td>\n" +
-            "                                                        <td class=\"linked\" test-id=\"5\">test1</td>\n" +
-            "                                                        <td><pre><pre>java.lang.AssertionError: expected [2] but found [1]\n" +
-            "\tat org.testng.Assert.fail(Assert.java:94)\n" +
-            "\tat org.testng.Assert.failNotEquals(Assert.java:513)\n" +
-            "\tat org.testng.Assert.assertEqualsImpl(Assert.java:135)\n" +
-            "\tat org.testng.Assert.assertEquals(Assert.java:116)\n" +
-            "\tat org.testng.Assert.assertEquals(Assert.java:389)\n" +
-            "\tat org.testng.Assert.assertEquals(Assert.java:399)\n" +
-            "\tat source.extentReport.extentreportsDemo.test1(extentreportsDemo.java:15)\n" +
-            "\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n" +
-            "\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\n" +
-            "\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\n" +
-            "\tat java.lang.reflect.Method.invoke(Unknown Source)\n" +
-            "\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)\n" +
-            "\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:645)\n" +
-            "\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)\n" +
-            "\tat org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)\n" +
-            "\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)\n" +
-            "\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)\n" +
-            "\tat org.testng.TestRunner.privateRun(TestRunner.java:756)\n" +
-            "\tat org.testng.TestRunner.run(TestRunner.java:610)\n" +
-            "\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:387)\n" +
-            "\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)\n" +
-            "\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)\n" +
-            "\tat org.testng.SuiteRunner.run(SuiteRunner.java:289)\n" +
-            "\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)\n" +
-            "\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)\n" +
-            "\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)\n" +
-            "\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1218)\n" +
-            "\tat org.testng.TestNG.runSuites(TestNG.java:1133)\n" +
-            "\tat org.testng.TestNG.run(TestNG.java:1104)\n" +
-            "\tat org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)\n" +
-            "\tat org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)\n" +
-            "</pre></pre></td>\n" +
-            "                                                    </tr>\n" +
-            "                                        </tbody>\n" +
-            "                                    </table>\n" +
-            "                                </div>\n" +
-            "                            </div>\n" +
-            "                        </li>\n" +
             "\n" +
             "                        <li class=\"exception displayed active\">\n" +
             "                            <div class=\"exception-heading\">\n" +
@@ -490,6 +414,8 @@ public class ReportTemplate {
             "                                </div>\n" +
             "                            </div>\n" +
             "                        </li>\n" +
+
+
             "                </ul>\n" +
             "        </div>\n" +
             "    </div>\n" +
@@ -616,31 +542,31 @@ public class ReportTemplate {
             "\t\t\t<div class=\"col s2\">\n" +
             "\t\t\t\t<div class=\"card-panel r\">\n" +
             "\t\t\t\t\tTests\n" +
-            "\t\t\t\t\t<div class=\"panel-lead\">2</div>\n" +
+            "\t\t\t\t\t<div class=\"panel-lead\">reportTemplateCaseNum</div>\n" +
             "\t\t\t\t</div>\n" +
             "\t\t\t</div>\n" +
             "\t\t\t<div class=\"col s2\">\n" +
             "\t\t\t\t<div class=\"card-panel r\">\n" +
             "\t\t\t\t\tSteps\n" +
-            "\t\t\t\t\t<div class=\"panel-lead\">2</div>\n" +
+            "\t\t\t\t\t<div class=\"panel-lead\">0</div>\n" +
             "\t\t\t\t</div>\n" +
             "\t\t\t</div>\n" +
             "\t\t\t<div class=\"col s2\">\n" +
             "\t\t\t\t<div class=\"card-panel r\">\n" +
             "\t\t\t\t\tStart\n" +
-            "\t\t\t\t\t<div class=\"panel-lead\">Sep 14, 2020 11:03:35 AM</div>\n" +
+            "\t\t\t\t\t<div class=\"panel-lead\">reportTemplateStartTimeALL</div>\n" +
             "\t\t\t\t</div>\n" +
             "\t\t\t</div>\n" +
             "\t\t\t<div class=\"col s2\">\n" +
             "\t\t\t\t<div class=\"card-panel r\">\n" +
             "\t\t\t \t\tEnd\n" +
-            "\t\t\t \t\t<div class=\"panel-lead\">Sep 14, 2020 11:03:35 AM</div>\n" +
+            "\t\t\t \t\t<div class=\"panel-lead\">reportTemplateEndTimeALL</div>\n" +
             "\t\t\t\t</div>\n" +
             "\t\t\t</div>\n" +
             "\t\t\t<div class=\"col s2\">\n" +
             "\t\t\t\t<div class=\"card-panel r\">\n" +
             "\t\t\t\t\tTime Taken\n" +
-            "\t\t\t\t\t<div class=\"panel-lead\">10ms</div>\n" +
+            "\t\t\t\t\t<div class=\"panel-lead\">reportTemplateTakenTimeALL</div>\n" +
             "\t\t\t\t</div>\n" +
             "\t\t\t</div>\n" +
             "\t\t</div>\n" +
@@ -694,8 +620,19 @@ public class ReportTemplate {
     }
 
     public static String getTemplate(Map<String, Object> caseMsgMap) {
+        if (caseNumSuccess == 0 && caseNumFail == 0) {
+            reportTemplateStartTimeALL = caseMsgMap.get("reportTemplateStartTime").toString();
+        }
+
         String reportHtml;
-        String caseResultMsg = allListTemplateFail;
+        String caseResultMsg;
+        if (caseMsgMap.get("resultVerify").toString().equals("true")) {
+            caseNumSuccess++;
+            caseResultMsg = allListTemplateSuccess;
+        } else {
+            caseNumFail++;
+            caseResultMsg = allListTemplateFail;
+        }
         caseResultMsg = caseResultMsg.replace("reportTemplateId", caseMsgMap.get("api_id").toString() + caseMsgMap.get("cases_id").toString());
         caseResultMsg = caseResultMsg.replace("reportTemplateRequestName", caseMsgMap.get("cases_id") + "." + caseMsgMap.get("api_description") + ":" + caseMsgMap.get("cases_description").toString());
         caseResultMsg = caseResultMsg.replace("reportTemplateStartTime", caseMsgMap.get("reportTemplateStartTime").toString());
@@ -703,16 +640,27 @@ public class ReportTemplate {
         caseResultMsg = caseResultMsg.replace("reportTemplateTakenTime", caseMsgMap.get("reportTemplateTakenTime").toString());
         caseResultMsg = caseResultMsg.replace("reportTemplateRequestDetail", ReportTemplate.getRequestDetail(caseMsgMap));
         reportHtml = caseResultMsg;
+        reportTemplateEndTimeALL = caseMsgMap.get("reportTemplateEndTime").toString();
         return reportHtml;
+    }
+
+    public static String getlastHTML() {
+        reportTemplateTakenTimeALL = GetTime.getTimeDifference(reportTemplateStartTimeALL, reportTemplateEndTimeALL);
+        tp2 = tp2.replace("reportTemplateCaseNum", "" + (caseNumSuccess + caseNumFail));
+        tp2 = tp2.replace("reportTemplateStartTimeALL", reportTemplateStartTimeALL);
+        tp2 = tp2.replace("reportTemplateEndTimeALL", reportTemplateEndTimeALL);
+        tp2 = tp2.replace("reportTemplateTakenTimeALL", reportTemplateTakenTimeALL);
+
+        return tp2;
     }
 
     public static String getRequestDetail(Map<String, Object> caseMsgMap) {
 
         return "执行详情：\n" +
-                "模拟场景：" + caseMsgMap.get("cases_description") + "\n" +
-                "接口地址：" + caseMsgMap.get("api_url") + "\n" +
-                "请求参数：" + caseMsgMap.get("requestParamMap") + "\n" +
-                "期望响应结果： " + caseMsgMap.get("cases_verifytype") + " " + caseMsgMap.get("cases_expect") + "\n" +
+                "模拟场景：" + caseMsgMap.get("cases_description") + "Linebreak\n" +
+                "接口地址：" + caseMsgMap.get("api_url") + "Linebreak\n" +
+                "请求参数：" + caseMsgMap.get("requestParamMap") + "Linebreak\n" +
+                "期望响应结果： " + caseMsgMap.get("cases_verifytype") + " " + caseMsgMap.get("cases_expect") + "Linebreak\n" +
                 "实际响应结果： " + caseMsgMap.get("resultActual");
     }
 }

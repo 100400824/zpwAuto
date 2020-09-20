@@ -1,6 +1,7 @@
 package source.control;
 
 import source.utls.GetConfig;
+
 import java.util.*;
 
 public class GetCases {
@@ -27,7 +28,9 @@ public class GetCases {
                         GetConfig.getApplication("API.msg").contains(requestName)) {
                     caseMsgMap.put(requestName, everyCaseMap.get(requestName));
                 } else {
-                    requestParamMap.put(requestName, everyCaseMap.get(requestName));
+                    String mapValue = everyCaseMap.get(requestName).toString();
+                    //将MySql中的null替换为""
+                    requestParamMap.put(requestName, mapValue);
                 }
             }
             resultMap.put("caseMsgMap", caseMsgMap);
