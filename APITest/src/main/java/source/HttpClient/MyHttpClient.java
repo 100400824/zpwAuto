@@ -32,7 +32,7 @@ public class MyHttpClient {
     private static String reportTemplateStartTime;
     private static String reportTemplateEndTime;
     private static String reportTemplateTakenTime;
-    public static String reportPath = ReportTemplate.filePath + "接口测试报告" + GetTime.getNowTime(GetTime.dateFormat3) + ".html";
+    private static String reportPath = ReportTemplate.filePath + "接口测试报告" + GetTime.getNowTime(GetTime.dateFormat3) + ".html";
 
     public static void main(String[] args) throws Exception {
         HttpClientContext httpClientContext = HttpClientContext.create();
@@ -140,6 +140,5 @@ public class MyHttpClient {
         httpPost.setEntity(entiy);
         response = httpClient.execute(httpPost);
     }
-
 
 }
