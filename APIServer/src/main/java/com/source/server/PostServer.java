@@ -42,39 +42,5 @@ public class PostServer {
     }
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    @ApiOperation(value = "登录接口", httpMethod = "POST")
-    public String login(HttpServletResponse response, @RequestBody User user) {
-        if (user.getUserName().equals("zpw") && user.getPassWord().equals("123123")) {
-            Cookie cookie = new Cookie("loingCookie", "zpw");
-            response.addCookie(cookie);
-            return "登录成功";
-        }
-
-        return "账号密码错误";
-    }
-
-    @RequestMapping(value = "/getUserList", method = RequestMethod.POST)
-    @ApiOperation(value = "获取用户列表接口", httpMethod = "POST")
-    public String getUserList(HttpServletRequest request,@RequestBody User user) {
-        User userInfo = new User();
-        Cookie[] cookies = request.getCookies();
-        if (Objects.isNull(cookies)) {
-            return "缺少token，校验失败。";
-        }
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("loinCookie")
-                    && cookie.getValue().equals("zpw")
-                    && user.getName().equals("zpw")) {
-                userInfo.setUserName("zpw");
-                userInfo.setPassWord("******");
-                userInfo.setName("zpw");
-                userInfo.setAge("18");
-                userInfo.setSex("boy");
-                return userInfo.toString();
-            }
-        }
-        return "校验失败，无法获取用户列表";
-    }
 
 }
