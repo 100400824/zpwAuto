@@ -11,6 +11,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
+import org.testng.annotations.Test;
 import source.control.GetCases;
 import source.extentReport.ReportTemplate;
 import source.utls.GetTime;
@@ -48,6 +49,7 @@ public class MyHttpClient {
         OperationFile.clearFile(reportPath);
         OperationFile.write(reportPath, lastReportHtml.replace("Linebreak", "\n"));
     }
+
 
     public static void goAPI(String apiTableName) throws Exception {
         MyHttpClient myHttpClient = new MyHttpClient();

@@ -45,7 +45,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Sep 14, 2020 11:03:35 AM</span>
+                    <span class='label suite-start-time blue darken-3'>Sep 23, 2020 01:24:39 AM</span>
 				</a>
 			</li>
 			<li>
@@ -70,8 +70,7 @@
 					<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
-						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+											<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -122,10 +121,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> test(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -137,10 +136,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -158,22 +157,22 @@
 				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>test</span>
-						<span class='test-time'>Sep 14, 2020 11:03:35 AM</span>
+						<span class='test-time'>Sep 23, 2020 01:24:39 AM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Sep 14, 2020 11:03:35 AM</span>
-	<span class='label end-time'>Sep 14, 2020 11:03:35 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+89ms</span>
+	<span class='label start-time'>Sep 23, 2020 01:24:39 AM</span>
+	<span class='label end-time'>Sep 23, 2020 01:24:39 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+79ms</span>
 </div>
 	<ul class='collapsible node-list' data-collapsible='accordion'>
 		
 				<li class='node level-1  fail' status='fail' test-id='2'>
 					<div class='collapsible-header'>
 						<div class='node-name'>pay</div>						
-						<span class='node-time'>Sep 14, 2020 11:03:35 AM</span>
-						<span class='node-duration'>0h 0m 0s+59ms</span>
+						<span class='node-time'>Sep 23, 2020 01:24:39 AM</span>
+						<span class='node-duration'>0h 0m 0s+37ms</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 						<div class='collapsible-body'>
@@ -189,7 +188,7 @@
 										<tbody>
 												<tr class='log' status='fail'>
 													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-													<td class='timestamp'>11:03:35 AM</td>
+													<td class='timestamp'>1:24:39 AM</td>
 													<td class='step-details'>Failed</td>
 												</tr>
 										</tbody>
@@ -199,9 +198,9 @@
 						<ul class='collapsible node-list' data-collapsible='accordion'>
 				<li class='node level-2 leaf fail' status='fail' test-id='3'>
 					<div class='collapsible-header'>
-						<div class='node-name'>test1</div>						
-						<span class='node-time'>Sep 14, 2020 11:03:35 AM</span>
-						<span class='node-duration'>0h 0m 0s+9ms</span>
+						<div class='node-name'>goTEST</div>						
+						<span class='node-time'>Sep 23, 2020 01:24:39 AM</span>
+						<span class='node-duration'>0h 0m 0s+19ms</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 						<div class='collapsible-body'>
@@ -217,15 +216,16 @@
 										<tbody>
 												<tr class='log' status='fail'>
 													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-													<td class='timestamp'>11:03:35 AM</td>
-													<td class='step-details'><pre>java.lang.AssertionError: expected [2] but found [1]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:513)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
-	at org.testng.Assert.assertEquals(Assert.java:116)
-	at org.testng.Assert.assertEquals(Assert.java:389)
-	at org.testng.Assert.assertEquals(Assert.java:399)
-	at source.extentReport.extentreportsDemo.test1(extentreportsDemo.java:15)
+													<td class='timestamp'>1:24:39 AM</td>
+													<td class='step-details'><textarea>java.io.FileNotFoundException: D:\workspace\zpwAuto\APITest\APITest\test-output\接口测试报告2020-09-23 01-24-39.html (系统找不到指定的路径。)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileWriter.<init>(Unknown Source)
+	at source.utls.OperationFile.write(OperationFile.java:15)
+	at source.HttpClient.MyHttpClient.forTestng(MyHttpClient.java:48)
+	at source.HttpClient.MyHttpClient.goTEST(MyHttpClient.java:40)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -250,35 +250,7 @@
 	at org.testng.TestNG.run(TestNG.java:1104)
 	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)
 	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-</pre></td>
-												</tr>
-										</tbody>
-									</table>
-								</div>
-						</div>
-				</li>
-				<li class='node level-2 leaf pass' status='pass' test-id='4'>
-					<div class='collapsible-header'>
-						<div class='node-name'>test2</div>						
-						<span class='node-time'>Sep 14, 2020 11:03:35 AM</span>
-						<span class='node-duration'>0h 0m 0s+1ms</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-						<div class='collapsible-body'>
-								<div class='node-steps'>
-									<table class='bordered table-results'>
-										<thead>
-											<tr>
-												<th>Status</th>
-												<th>Timestamp</th>
-												<th>Details</th>
-											</tr>
-										</thead>
-										<tbody>
-												<tr class='log' status='pass'>
-													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-													<td class='timestamp'>11:03:35 AM</td>
-													<td class='step-details'>Passed</td>
+</textarea></td>
 												</tr>
 										</tbody>
 									</table>
@@ -343,7 +315,7 @@
 
                         <li class='exception displayed active'>
                             <div class='exception-heading'>
-                                <span class='exception-name'>java.lang.AssertionError</span>
+                                <span class='exception-name'>java.io.FileNotFoundException</span>
                                 <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
                             </div>
                             <div class='exception-content hide'>
@@ -358,16 +330,17 @@
                                         </thead>
                                         <tbody>
                                                     <tr>
-                                                        <td>Sep 14, 2020 11:03:35 AM</td>
-                                                        <td class='linked' test-id='3'>test.pay.test1</td>
-                                                        <td><pre><pre>java.lang.AssertionError: expected [2] but found [1]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:513)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
-	at org.testng.Assert.assertEquals(Assert.java:116)
-	at org.testng.Assert.assertEquals(Assert.java:389)
-	at org.testng.Assert.assertEquals(Assert.java:399)
-	at source.extentReport.extentreportsDemo.test1(extentreportsDemo.java:15)
+                                                        <td>Sep 23, 2020 01:24:39 AM</td>
+                                                        <td class='linked' test-id='3'>test.pay.goTEST</td>
+                                                        <td><pre><textarea>java.io.FileNotFoundException: D:\workspace\zpwAuto\APITest\APITest\test-output\接口测试报告2020-09-23 01-24-39.html (系统找不到指定的路径。)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileWriter.<init>(Unknown Source)
+	at source.utls.OperationFile.write(OperationFile.java:15)
+	at source.HttpClient.MyHttpClient.forTestng(MyHttpClient.java:48)
+	at source.HttpClient.MyHttpClient.goTEST(MyHttpClient.java:40)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -392,7 +365,7 @@
 	at org.testng.TestNG.run(TestNG.java:1104)
 	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)
 	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-</pre></pre></td>
+</textarea></pre></td>
                                                     </tr>
                                         </tbody>
                                     </table>
@@ -418,31 +391,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>2</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>2</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Sep 14, 2020 11:03:35 AM</div>
+					<div class='panel-lead'>Sep 23, 2020 01:24:39 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Sep 14, 2020 11:03:36 AM</div>
+			 		<div class='panel-lead'>Sep 23, 2020 01:24:40 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>1,161ms</div>
+					<div class='panel-lead'>1,062ms</div>
 				</div>
 			</div>
 		</div>
@@ -455,7 +428,7 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 1,
+				passParent: 0,
 				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
@@ -463,7 +436,7 @@
 				skipParent: 0,
 				exceptionsParent: 1,
 				
-				passChild: 1,
+				passChild: 0,
 				failChild: 1,
 				fatalChild: 0,
 				errorChild: 0,
