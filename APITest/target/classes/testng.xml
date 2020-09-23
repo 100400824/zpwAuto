@@ -4,7 +4,6 @@
     <test name="pay">
         <classes>
             <class name="source.HttpClient.MyHttpClient"/>
-
         </classes>
     </test>
 

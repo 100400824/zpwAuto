@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="0" name="TestSuite" time="1.879" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="D:\java\jdk\bin"/>
+    <property name="java.vm.version" value="25.51-b03"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\workspace\zpwAuto\APITest"/>
+    <property name="java.runtime.version" value="1.8.0_51-b16"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="basedir" value="D:\workspace\zpwAuto\APITest"/>
+    <property name="java.endorsed.dirs" value="D:\java\jdk\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="surefire.real.class.path" value="D:\workspace\zpwAuto\APITest\target\surefire\surefirebooter3860441479788109148.jar"/>
+    <property name="java.io.tmpdir" value="C:\Users\ADMINI~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 8.1"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="D:\java\jdk\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\java\jdk\bin;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;F:\apache-maven-3.6.0\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="surefire.test.class.path" value="D:\workspace\zpwAuto\APITest\target\test-classes;D:\workspace\zpwAuto\APITest\target\classes;F:\repository\org\testng\testng\7.1.0\testng-7.1.0.jar;F:\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;F:\repository\com\google\inject\guice\4.1.0\guice-4.1.0-no_aop.jar;F:\repository\javax\inject\javax.inject\1\javax.inject-1.jar;F:\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;F:\repository\org\yaml\snakeyaml\1.21\snakeyaml-1.21.jar;F:\repository\com\relevantcodes\extentreports\2.41.0\extentreports-2.41.0.jar;F:\repository\org\jsoup\jsoup\1.8.3\jsoup-1.8.3.jar;F:\repository\org\xerial\sqlite-jdbc\3.8.11.1\sqlite-jdbc-3.8.11.1.jar;F:\repository\org\freemarker\freemarker\2.3.23\freemarker-2.3.23.jar;F:\repository\org\mongodb\mongodb-driver\3.0.4\mongodb-driver-3.0.4.jar;F:\repository\org\mongodb\bson\3.0.4\bson-3.0.4.jar;F:\repository\org\mongodb\mongodb-driver-core\3.0.4\mongodb-driver-core-3.0.4.jar;F:\repository\com\vimalselvam\testng-extentsreport\1.3.1\testng-extentsreport-1.3.1.jar;F:\repository\com\google\guava\guava\20.0\guava-20.0.jar;F:\repository\com\aventstack\extentreports\3.0.6\extentreports-3.0.6.jar;F:\repository\org\apache\httpcomponents\httpmime\4.5.2\httpmime-4.5.2.jar;F:\repository\org\apache\httpcomponents\httpclient\4.5.12\httpclient-4.5.12.jar;F:\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;F:\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;F:\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;F:\repository\org\json\json\20190722\json-20190722.jar;F:\repository\org\projectlombok\lombok\1.16.14\lombok-1.16.14.jar;F:\repository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar;F:\repository\org\springframework\spring-context\5.2.8.RELEASE\spring-context-5.2.8.RELEASE.jar;F:\repository\org\springframework\spring-aop\5.2.8.RELEASE\spring-aop-5.2.8.RELEASE.jar;F:\repository\org\springframework\spring-beans\5.2.8.RELEASE\spring-beans-5.2.8.RELEASE.jar;F:\repository\org\springframework\spring-core\5.2.8.RELEASE\spring-core-5.2.8.RELEASE.jar;F:\repository\org\springframework\spring-jcl\5.2.8.RELEASE\spring-jcl-5.2.8.RELEASE.jar;F:\repository\org\springframework\spring-expression\5.2.8.RELEASE\spring-expression-5.2.8.RELEASE.jar;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.3"/>
+    <property name="user.home" value="C:\Users\Administrator"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="user.name" value="Administrator"/>
+    <property name="java.class.path" value="D:\workspace\zpwAuto\APITest\target\test-classes;D:\workspace\zpwAuto\APITest\target\classes;F:\repository\org\testng\testng\7.1.0\testng-7.1.0.jar;F:\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;F:\repository\com\google\inject\guice\4.1.0\guice-4.1.0-no_aop.jar;F:\repository\javax\inject\javax.inject\1\javax.inject-1.jar;F:\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;F:\repository\org\yaml\snakeyaml\1.21\snakeyaml-1.21.jar;F:\repository\com\relevantcodes\extentreports\2.41.0\extentreports-2.41.0.jar;F:\repository\org\jsoup\jsoup\1.8.3\jsoup-1.8.3.jar;F:\repository\org\xerial\sqlite-jdbc\3.8.11.1\sqlite-jdbc-3.8.11.1.jar;F:\repository\org\freemarker\freemarker\2.3.23\freemarker-2.3.23.jar;F:\repository\org\mongodb\mongodb-driver\3.0.4\mongodb-driver-3.0.4.jar;F:\repository\org\mongodb\bson\3.0.4\bson-3.0.4.jar;F:\repository\org\mongodb\mongodb-driver-core\3.0.4\mongodb-driver-core-3.0.4.jar;F:\repository\com\vimalselvam\testng-extentsreport\1.3.1\testng-extentsreport-1.3.1.jar;F:\repository\com\google\guava\guava\20.0\guava-20.0.jar;F:\repository\com\aventstack\extentreports\3.0.6\extentreports-3.0.6.jar;F:\repository\org\apache\httpcomponents\httpmime\4.5.2\httpmime-4.5.2.jar;F:\repository\org\apache\httpcomponents\httpclient\4.5.12\httpclient-4.5.12.jar;F:\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;F:\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;F:\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;F:\repository\org\json\json\20190722\json-20190722.jar;F:\repository\org\projectlombok\lombok\1.16.14\lombok-1.16.14.jar;F:\repository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar;F:\repository\org\springframework\spring-context\5.2.8.RELEASE\spring-context-5.2.8.RELEASE.jar;F:\repository\org\springframework\spring-aop\5.2.8.RELEASE\spring-aop-5.2.8.RELEASE.jar;F:\repository\org\springframework\spring-beans\5.2.8.RELEASE\spring-beans-5.2.8.RELEASE.jar;F:\repository\org\springframework\spring-core\5.2.8.RELEASE\spring-core-5.2.8.RELEASE.jar;F:\repository\org\springframework\spring-jcl\5.2.8.RELEASE\spring-jcl-5.2.8.RELEASE.jar;F:\repository\org\springframework\spring-expression\5.2.8.RELEASE\spring-expression-5.2.8.RELEASE.jar;"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="D:\java\jdk"/>
+    <property name="sun.java.command" value="D:\workspace\zpwAuto\APITest\target\surefire\surefirebooter3860441479788109148.jar D:\workspace\zpwAuto\APITest\target\surefire\surefire4987651912264447910tmp D:\workspace\zpwAuto\APITest\target\surefire\surefire370415822197537938tmp"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_51"/>
+    <property name="java.ext.dirs" value="D:\java\jdk\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="D:\java\jdk\lib\resources.jar;D:\java\jdk\lib\rt.jar;D:\java\jdk\lib\sunrsasign.jar;D:\java\jdk\lib\jsse.jar;D:\java\jdk\lib\jce.jar;D:\java\jdk\lib\charsets.jar;D:\java\jdk\lib\jfr.jar;D:\java\jdk\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="localRepository" value="F:\repository"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="source.HttpClient.MyHttpClient" name="doT" time="0.485"/>
+</testsuite>

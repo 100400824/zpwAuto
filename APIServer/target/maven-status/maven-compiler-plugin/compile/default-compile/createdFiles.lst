@@ -1,0 +1,9 @@
+com\source\server\UserManager.class
+com\source\Application.class
+com\source\bean\User.class
+com\source\server\PostServer.class
+com\source\config\SwaggerConfig.class
+com\source\bean\LoginUser.class
+com\source\bean\StudentCourse.class
+com\source\bean\UserManage.class
+com\source\server\GetServer.class
