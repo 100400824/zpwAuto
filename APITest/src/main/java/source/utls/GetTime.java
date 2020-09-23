@@ -7,7 +7,7 @@ public class GetTime {
 
     public static final String dateFormat1 = "yyyy-MM-dd HH:mm:ss";
     public static final String dateFormat2 = "yyyy-MM-dd HH:mm:ss.SSS";
-    public static final String dateFormat3 = "yyyy-MM-dd HH-mm-ss";
+    public static final String dateFormat3 = "yyyy-MM-dd-HH-mm-ss";
 
     public static void main(String[] args) {
 //        getNowTime(GetTime.dateFormat2);

@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class ReportTemplate {
 
-    public static final String filePath = System.getProperty("user.dir") + "\\APITest\\test-output\\";
+    public static final String filePath = System.getProperty("user.dir") +System.getProperty("file.separator");
     public static int caseNumSuccess = 0;
     public static int caseNumFail = 0;
     public static String reportTemplateStartTimeALL;
