@@ -3,7 +3,7 @@
 
     <test name="pay">
         <classes>
-            <class name="source.extentReport.extentreportsDemo"/>
+            <class name="source.HttpClient.MyHttpClient"/>
 
         </classes>
     </test>
