@@ -37,14 +37,14 @@ public class MyHttpClient {
     private static String reportTemplateTakenTime;
     private static String reportPath = ReportTemplate.filePath + "接口测试报告" + GetTime.getNowTime(GetTime.dateFormat3) + ".html";
 
-/*    public static void main(String[] args) throws Exception {
-        forTest();
-    }*/
-
-    @Test
-    public static void doT() throws Exception{
+    public static void main(String[] args) throws Exception {
         forTest();
     }
+
+ /*   @Test
+    public static void doT() throws Exception{
+        forTest();
+    }*/
 
     public static void forTest() throws Exception{
         HttpClientContext httpClientContext = HttpClientContext.create();
