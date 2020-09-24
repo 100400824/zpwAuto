@@ -17,14 +17,22 @@ public class ConnectMySql {
 
     public static void main(String[] args) {
         String sql = "select * from logincases";
+        String osName = System.getProperty("os.name");
+        System.out.println(osName);
         System.out.println(getCases(sql));
     }
 
     private static Connection getConnection() {
         Connection conn = null;
         try {
+            String osName = System.getProperty("os.name");
             Class.forName("com.mysql.jdbc.Driver");
-            String url = GetConfig.getApplication("MySql.url");
+            String url;
+            if (osName.contains("Windows")) {
+                 url = GetConfig.getApplication("MySql.url");
+            }else {
+                url = GetConfig.getApplication("Linux.MySql.url");
+            }
             String user = GetConfig.getApplication("MySql.username");;
             String pass = GetConfig.getApplication("MySql.password");;
             conn = DriverManager.getConnection(url, user, pass);
