@@ -41,11 +41,6 @@ public class MyHttpClient {
         forTest();
     }
 
- /*   @Test
-    public static void doT() throws Exception{
-        forTest();
-    }*/
-
     public static void forTest() throws Exception{
         HttpClientContext httpClientContext = HttpClientContext.create();
         httpClientContext.setCookieStore(cookieStore);
